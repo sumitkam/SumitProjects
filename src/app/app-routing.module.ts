@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TodoListComponent } from './components/tasks/todo-list/todo-list.component';
 import { MainComponent } from './layout/main/main.component';
 import { PortfolioComponent } from './components/tasks/portfolio/portfolio.component';
+import { FormValidationsComponent } from './components/tasks/form-validations/form-validations.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'portfolio',
     component: PortfolioComponent
+  },
+  {
+    path:'form-Validation',
+    component:FormValidationsComponent
   },
   {
     path: "**",

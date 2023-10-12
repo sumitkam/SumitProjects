@@ -13,6 +13,7 @@ import { MainComponent } from './layout/main/main.component';
 import { InfoCardsComponent } from './components/info-cards/info-cards.component';
 import { TodoListComponent } from './components/tasks/todo-list/todo-list.component';
 import { PortfolioComponent } from './components/tasks/portfolio/portfolio.component';
+import { FormValidationsComponent } from './components/tasks/form-validations/form-validations.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PortfolioComponent } from './components/tasks/portfolio/portfolio.compo
         MainComponent,
         InfoCardsComponent,
         TodoListComponent,
-        PortfolioComponent
+        PortfolioComponent,
+        FormValidationsComponent
     ],
     providers: [],
     bootstrap: [AppComponent],
