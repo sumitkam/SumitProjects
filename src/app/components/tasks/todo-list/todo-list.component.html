@@ -1,22 +1,22 @@
-<div class="container">
-    <div class="card">
-        <div class="card-header">
+<div class="container card shadow p-5">
+    <div class="card shadow">
+        <div class="card-header bg-warning">
             <h1>To-Do List</h1>
         </div>
         <div class="card-body p-3">
             <form action="" class="form p-2" >
                 <div class="form-field">
                     <label for="" class="form-label">List Item</label>
-                    <input class="form-control" type="text" placeholder="Enter Item" required>
+                    <input class="form-control" type="text" placeholder="Enter Item" name="data" [(ngModel)]="addDataValue" required>
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-primary mt-3" >Submit</button>
+                    <button type="submit" class="btn btn-primary mt-3" (click)="addData()">Submit</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <div class="card p-3 mt-3">
+    <div class="card p-3 mt-3 shadow">
         <table class="table table-striped align-middle">
             <thead>
                 <tr>
@@ -26,12 +26,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>comming soon....</td>
+                <tr *ngFor="let data of dataArr">
+                    <td>{{data.id}}</td>
+                    <td>{{data.data}}</td>
                     <td>
-                        <button type="button" class="btn btn-warning">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-outline-primary" (click)="editData()">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="button" class="btn btn-outline-danger" (click)="deleteData(data)">Delete</button>
                     </td>
                 </tr>
             </tbody>

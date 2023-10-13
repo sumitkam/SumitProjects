@@ -14,6 +14,9 @@ import { InfoCardsComponent } from './components/info-cards/info-cards.component
 import { TodoListComponent } from './components/tasks/todo-list/todo-list.component';
 import { PortfolioComponent } from './components/tasks/portfolio/portfolio.component';
 import { FormValidationsComponent } from './components/tasks/form-validations/form-validations.component';
+import { FormsModule } from '@angular/forms';
+import { MatTableModule} from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -36,7 +39,10 @@ import { FormValidationsComponent } from './components/tasks/form-validations/fo
         MatToolbarModule,
         MatButtonModule,
         MatIconModule,
-        MatGridListModule
+        MatGridListModule,
+        FormsModule,
+        MatTableModule,
+        HttpClientModule
     ]
 })
 export class AppModule { }
