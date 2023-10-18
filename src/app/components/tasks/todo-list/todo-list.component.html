@@ -1,40 +1,131 @@
-<div class="container card shadow p-5">
-    <div class="card shadow">
-        <div class="card-header bg-warning">
-            <h1>To-Do List</h1>
-        </div>
-        <div class="card-body p-3">
-            <form action="" class="form p-2" >
-                <div class="form-field">
-                    <label for="" class="form-label">List Item</label>
-                    <input class="form-control" type="text" placeholder="Enter Item" name="data" [(ngModel)]="addDataValue" required>
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-primary mt-3" (click)="addData()">Submit</button>
-                </div>
-            </form>
-        </div>
+<div class="container card shadow px-5 pt-3 pb-5">
+  <div class="card shadow">
+    <div class="card-header bg-warning">
+      <h1>To-Do List</h1>
     </div>
+    <div class="card-body  p-3">
+      <form action="" class="form d-flex gap-2 justify-content-center align-items-end p-2">
+        <div class="form-field flex-grow-1 ">
+          <label for="" class="form-label">List Item</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Enter Item"
+            name="data"
+            [(ngModel)]="addDataValue"
+            required
+          />
+        </div>
+        <div class="form-field">
+            <mat-form-field [subscriptSizing]="'dynamic'">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" [formControl]="targetDate">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+        </div>
+        <div class="me-3">
+          <button
+            type="submit"
+            class="btn btn-primary mt-3"
+            (click)="addData()"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 
-    <div class="card p-3 mt-3 shadow">
-        <table class="table table-striped align-middle">
-            <thead>
-                <tr>
-                    <th>SR.No</th>
-                    <th>List Item</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let data of dataArr">
-                    <td>{{data.id}}</td>
-                    <td>{{data.data}}</td>
-                    <td>
-                        <button type="button" class="btn btn-outline-primary" (click)="editData()">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button type="button" class="btn btn-outline-danger" (click)="deleteData(data)">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+  <div class="card table-responsive table-wrapper p-3 mt-3 shadow">
+    <table class="table table-striped align-middle">
+      <thead>
+        <tr>
+          <th>SR.No</th>
+          <th>List Item</th>
+          <th>Completion target date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of dataArr">
+          <td>{{ data.id }}</td>
+          <td>{{ data.taskName }}</td>
+          <td>{{ data.targetDate | date: 'medium'}}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-outline-primary me-3"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              (click)="call(data)"
+            >
+              Edit on Modal
+            </button>
+            <button
+              mat-stroked-button
+              color="accent"
+              (click)="openDialog(data)"
+              class="me-3"
+            >
+              Edit on Dialog
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              (click)="deleteData(data)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- todo-edit-model  -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Todo-List</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-field">
+          <label for="" class="form-label">Edit List Item</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Enter Item"
+            name="data"
+            [(ngModel)]="editDataValue"
+            required
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="editData()"
+        >
+          Update
+        </button>
+      </div>
     </div>
+  </div>
 </div>

@@ -1,4 +1,5 @@
 export class TodoList {
     id: number = 0;
-    data: string = '';
+    taskName: string = '';
+    targetDate: Date | null = null;
 }

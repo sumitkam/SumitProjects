@@ -14,10 +14,15 @@ import { InfoCardsComponent } from './components/info-cards/info-cards.component
 import { TodoListComponent } from './components/tasks/todo-list/todo-list.component';
 import { PortfolioComponent } from './components/tasks/portfolio/portfolio.component';
 import { FormValidationsComponent } from './components/tasks/form-validations/form-validations.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { TodoListEditDialogComponent } from './components/tasks/todo-list/todo-list-edit-dialog/todo-list-edit-dialog.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
     declarations: [
@@ -27,7 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
         InfoCardsComponent,
         TodoListComponent,
         PortfolioComponent,
-        FormValidationsComponent
+        FormValidationsComponent,
+        TodoListEditDialogComponent
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -42,7 +48,13 @@ import { HttpClientModule } from '@angular/common/http';
         MatGridListModule,
         FormsModule,
         MatTableModule,
-        HttpClientModule
+        HttpClientModule,
+        MatDialogModule,
+        MatInputModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        MatDatepickerModule,
+        MatNativeDateModule
     ]
 })
 export class AppModule { }

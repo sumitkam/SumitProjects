@@ -1,0 +1,23 @@
+<div class="todo-edit">
+    <h1 mat-dialog-title>Edit Todo-List</h1>
+    <div mat-dialog-content>
+      <form [formGroup]="editFormGroup">
+        <mat-form-field>
+          <mat-label>Enter List Item</mat-label>
+          <input matInput type="text"  formControlName="taskName">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="targetDate">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </form>
+
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Cancel</button>
+      <button mat-button  cdkFocusInitial (click)="handleOkClick()">Ok</button>
+    </div>
+    
+</div>
